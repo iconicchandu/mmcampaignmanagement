@@ -113,7 +113,6 @@ export default function App() {
               onCampaignChange={setSelectedCampaign}
               data={data}
               getCampaignRevenue={getCampaignRevenue}
-              campaignETRevenue={campaignETRevenue}
             />
 
             {/* ET Revenue Summary Section */}
@@ -180,7 +179,7 @@ export default function App() {
                           {row.Campaign}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                          {row.ET || row.SUBID}
+                          {row.ET}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                           {row.Creative}

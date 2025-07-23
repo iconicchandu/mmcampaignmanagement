@@ -44,6 +44,23 @@ export default function App() {
     return filtered;
   }, [searchResults, selectedCampaign]);
 
+  const campaignETRevenue = useMemo(() => {
+    if (!selectedCampaign) return [];
+    
+    const campaignData = data.filter(row => row.Campaign === selectedCampaign);
+    const etRevenue: { [key: string]: number } = {};
+    
+    campaignData.forEach(row => {
+      const et = row.ET || 'Unknown';
+      const revenue = parseFloat(row.Revenue) || 0;
+      etRevenue[et] = (etRevenue[et] || 0) + revenue;
+    });
+    
+    return Object.entries(etRevenue)
+      .map(([et, revenue]) => ({ et, revenue }))
+      .sort((a, b) => b.revenue - a.revenue);
+  }, [data, selectedCampaign]);
+
   const etRevenueSummary = useMemo(() => {
     return getETRevenueSummary(data);
   }, [data]);

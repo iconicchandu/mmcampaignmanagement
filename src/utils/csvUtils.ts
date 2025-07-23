@@ -24,7 +24,7 @@ export const getETRevenueSummary = (data: CSVRow[]): Array<{et: string, revenue:
   const etRevenue: { [key: string]: number } = {};
   
   data.forEach(row => {
-    const et = row.ET || row.SUBID || 'Unknown';
+    const et = row.ET || 'Unknown';
     const revenue = parseFloat(row.Revenue) || 0;
     etRevenue[et] = (etRevenue[et] || 0) + revenue;
   });

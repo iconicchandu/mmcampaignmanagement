@@ -113,6 +113,7 @@ export default function App() {
               onCampaignChange={setSelectedCampaign}
               data={data}
               getCampaignRevenue={getCampaignRevenue}
+              campaignETRevenue={campaignETRevenue}
             />
 
             {/* ET Revenue Summary Section */}
